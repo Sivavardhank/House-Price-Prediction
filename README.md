@@ -50,7 +50,7 @@ The model is trained using **Random Forest Regressor** and deployed using **Flas
 
 ## 🖼️ Output Screenshot
 
-![Output]
+![Output](output.png)
 
 ---
 
