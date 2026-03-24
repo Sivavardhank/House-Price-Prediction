@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container fade-in">
+    <h1>📊 Analytics Dashboard</h1>
+
+    <h3>Feature Importance</h3>
+    <img src="{{ url_for('static', filename='feature.png') }}" width="100%">
+
+    <h3>Insights</h3>
+    <ul>
+        <li>Income strongly impacts price</li>
+        <li>Rooms and population also influence price</li>
+        <li>Bedrooms have moderate impact</li>
+    </ul>
+
+    <a href="/">⬅ Back to Predictor</a>
+</div>
+
+</body>
+</html>
