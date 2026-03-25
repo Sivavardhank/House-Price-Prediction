@@ -1,120 +1,134 @@
-# 🏠 House Price Prediction using Machine Learning
+# 🏠 House Price Prediction Web App
+
+## 🚀 Live Demo
+
+👉 https://house-price-prediction-2-ohea.onrender.com
+
+---
 
 ## 📌 Project Overview
 
-This project aims to predict house prices using Machine Learning techniques on the Boston Housing dataset.
-The goal is to build a model that can accurately estimate housing prices based on various features such as number of rooms, crime rate, and socio-economic factors.
+This project is a Machine Learning web application that predicts house prices based on key features such as income, house age, number of rooms, bedrooms, and population.
+
+The goal is to build an accurate prediction system and deploy it as a real-time web application using Flask.
 
 ---
 
-## 🚀 Features
+## 🧠 Machine Learning Workflow
 
-* Data preprocessing and cleaning
-* Model training using:
-
-  * Linear Regression
-  * Random Forest Regressor 🌲
-* Model evaluation using MAE and R² score
-* Feature importance analysis
-* Visualization of results
+* Data Collection (`housing.csv`)
+* Data Preprocessing
+* Feature Selection
+* Model Training
+* Model Evaluation
+* Model Deployment using Flask
 
 ---
 
-## 📂 Dataset
+## 🤖 Models Used
 
-* Dataset used: Boston Housing Dataset
-* Contains 506 rows and 13 features
-* Target variable: `medv` (Median house value)
+We trained and compared multiple machine learning models:
 
----
-
-## 🧠 Technologies Used
-
-* Python 🐍
-* Pandas
-* NumPy
-* Scikit-learn
-* Matplotlib
-
----
-
-## ⚙️ Project Workflow
-
-1. Data Loading
-2. Data Preprocessing
-3. Train-Test Split
-4. Model Training
-5. Model Evaluation
-6. Feature Importance Analysis
+* Linear Regression
+* Decision Tree Regressor
+* Random Forest Regressor 🌲
 
 ---
 
 ## 📊 Model Performance
 
-| Model             | MAE      | R² Score |
-| ----------------- | -------- | -------- |
-| Linear Regression | 3.18     | 0.66     |
-| Random Forest 🌲  | **2.11** | **0.87** |
+| Model             | MAE       | R² Score     |
+| ----------------- | --------- | ------------ |
+| Linear Regression | **80879** | **0.918** 🔥 |
+| Random Forest 🌲  | 94511     | 0.883        |
+| Decision Tree     | 140632    | 0.742        |
 
-👉 Random Forest outperformed Linear Regression by capturing non-linear relationships in the data.
-
----
-
-## 🔍 Feature Importance Analysis
-
-Feature importance was extracted from the Random Forest model to understand which features most influence house prices.
-
-### 📌 Key Insights:
-
-* **RM (Number of rooms)** → Most important feature
-* **LSTAT (% lower income population)** → Strong negative impact on price
-* **DIS (Distance to employment centers)** → Moderate influence
-
-Other features like CRIM, TAX, PTRATIO have less impact.
+👉 **Linear Regression performed best** for this dataset.
 
 ---
 
----
+## 🧠 Key Insight
 
-## 🧠 Interpretation
+Interestingly, Linear Regression outperformed Random Forest, indicating that the dataset has strong linear relationships between input features and house prices.
 
-* Houses with more rooms tend to have higher prices
-* Areas with lower socio-economic conditions have lower house values
-* Location plays a moderate role in pricing
+Random Forest introduced additional complexity, which slightly reduced performance in this case.
 
 ---
 
-## 💡 Why Random Forest?
+## 📊 Feature Importance (Random Forest)
 
-* Handles non-linear relationships
-* Reduces overfitting using multiple decision trees
-* Provides feature importance for interpretability
+Feature importance was analyzed using the Random Forest model to understand which factors influence house prices the most.
+
+### 📌 Important Features:
+
+* **Avg. Area Income** → Most important feature
+* **Avg. Area Number of Rooms** → Strong positive impact
+* **Area Population** → Moderate influence
 
 ---
+
+## 🖼️ Output Screenshot
 
 ![Output](output.png)
 
-## ▶️ How to Run the Project
+---
 
-1. Clone the repository:
+## 📈 Feature Importance Graph
+
+![Feature Importance](app/static/feature.png)
+
+---
+
+## 📊 Input Features
+
+* Avg. Area Income
+* Avg. Area House Age
+* Avg. Area Number of Rooms
+* Avg. Area Number of Bedrooms
+* Area Population
+
+---
+
+## 📈 Output
+
+* Predicted House Price 💰
+![Output](output.png)
+---
+
+## 🛠️ Tech Stack
+
+| Category     | Tools Used                  |
+| ------------ | --------------------------- |
+| Language     | Python 🐍                   |
+| ML Libraries | Pandas, NumPy, Scikit-learn |
+| Backend      | Flask                       |
+| Frontend     | HTML, CSS                   |
+| Deployment   | Render                      |
+
+---
+
+## ⚙️ How to Run Locally
+
+### 1. Clone Repository
 
 ```bash
 git clone https://github.com/Sivavardhank/House-Price-Prediction.git
-```
-
-2. Navigate to the project folder:
-
-```bash
 cd House-Price-Prediction
 ```
 
-3. Install dependencies:
+### 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Run the script:
+### 3. Train Model
+
+```bash
+python train_model.py
+```
+
+### 4. Run Flask App
 
 ```bash
 python app.py
@@ -127,12 +141,21 @@ python app.py
 ```
 House-Price-Prediction/
 │
+├── app/
+│   ├── static/
+│   │   └── feature.png
+│   └── templates/
+│       └── index.html
+│
+├── data/
+│   └── housing.csv
+│
+├── model/
+│   └── house_price_model.pkl
+│
+├── train_model.py
 ├── app.py
-├── model.pkl
-├── notebook.ipynb
 ├── requirements.txt
-├── templates/
-│   └── index.html
 └── README.md
 ```
 
@@ -140,23 +163,23 @@ House-Price-Prediction/
 
 ## 🔮 Future Improvements
 
-* Deploy using Flask web application
-* Add user interface for predictions
-* Use advanced models like XGBoost
-* Hyperparameter tuning for better accuracy
+* Add interactive dashboard (charts & insights)
+* Hyperparameter tuning for better performance
+* Add more advanced models like XGBoost
+* Improve UI/UX design
 
 ---
 
 ## 🙌 Acknowledgements
 
-* Boston Housing Dataset
-* Scikit-learn documentation
+* Dataset: Housing Dataset
+* Scikit-learn Documentation
 
 ---
 
 ## 📬 Contact
 
-If you have any questions or suggestions, feel free to reach out!
+If you have any questions or suggestions, feel free to connect!
 
 ---
 
